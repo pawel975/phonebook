@@ -1,0 +1,14 @@
+C:\Users\pawel\source\repos\csVSProjects\PhoneBook\phonebook\obj\Debug\net7.0\phonebook.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\pawel\source\repos\csVSProjects\PhoneBook\phonebook\obj\Debug\net7.0\phonebook.AssemblyInfoInputs.cache
+C:\Users\pawel\source\repos\csVSProjects\PhoneBook\phonebook\obj\Debug\net7.0\phonebook.AssemblyInfo.cs
+C:\Users\pawel\source\repos\csVSProjects\PhoneBook\phonebook\obj\Debug\net7.0\phonebook.csproj.CoreCompileInputs.cache
+C:\Users\pawel\source\repos\csVSProjects\PhoneBook\phonebook\bin\Debug\net7.0\phonebook.exe
+C:\Users\pawel\source\repos\csVSProjects\PhoneBook\phonebook\bin\Debug\net7.0\phonebook.deps.json
+C:\Users\pawel\source\repos\csVSProjects\PhoneBook\phonebook\bin\Debug\net7.0\phonebook.runtimeconfig.json
+C:\Users\pawel\source\repos\csVSProjects\PhoneBook\phonebook\bin\Debug\net7.0\phonebook.dll
+C:\Users\pawel\source\repos\csVSProjects\PhoneBook\phonebook\bin\Debug\net7.0\phonebook.pdb
+C:\Users\pawel\source\repos\csVSProjects\PhoneBook\phonebook\obj\Debug\net7.0\phonebook.dll
+C:\Users\pawel\source\repos\csVSProjects\PhoneBook\phonebook\obj\Debug\net7.0\refint\phonebook.dll
+C:\Users\pawel\source\repos\csVSProjects\PhoneBook\phonebook\obj\Debug\net7.0\phonebook.pdb
+C:\Users\pawel\source\repos\csVSProjects\PhoneBook\phonebook\obj\Debug\net7.0\phonebook.genruntimeconfig.cache
+C:\Users\pawel\source\repos\csVSProjects\PhoneBook\phonebook\obj\Debug\net7.0\ref\phonebook.dll

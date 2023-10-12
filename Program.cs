@@ -5,6 +5,8 @@ namespace Phonebook
     {
         static Dictionary<string, string> contacts = new Dictionary<string, string>();
 
+        static bool userEscaped = false;
+
         static public void AddContact(string contactName, string contactNumber)
         {
             if (!contacts.ContainsKey(contactName))
@@ -60,7 +62,7 @@ namespace Phonebook
             }
         }
 
-        static void Main()
+        static public void phoneBookInterface()
         {
             Console.WriteLine("*** Phonebook ***");
 
@@ -68,6 +70,7 @@ namespace Phonebook
             Console.WriteLine("Type 'show-all-contacts' to show all contacts");
             Console.WriteLine("Type 'show-contact-by-name' to show contact by name");
             Console.WriteLine("Type 'show-contact-by-number' to show contact by number");
+            Console.WriteLine("Type 'x' to quit");
 
             var actionType = Console.ReadLine();
 
@@ -92,15 +95,26 @@ namespace Phonebook
                 var contactNumber = Console.ReadLine();
                 if (contactNumber != null) showContactByNumber(contactNumber);
             }
+            else if (actionType == "x") userEscaped = true;
             else
             {
                 Console.WriteLine("Invalid action...");
             }
+        }
 
+        static bool isNameValid(string name)
+        {
+            //TODO: Function to validate name
+        }
 
+        static bool isNumberValid(string name)
+        {
+            //TODO: Function to validate number
+        }
 
-
+        static void Main()
+        {
+            do { phoneBookInterface(); } while (!userEscaped);
         }
     }
-}
 }
