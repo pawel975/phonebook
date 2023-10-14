@@ -3,12 +3,17 @@ namespace Phonebook
 {
     class Program
     {
-        static Dictionary<string, string> contacts = new Dictionary<string, string>();
+        static readonly Dictionary<string, string> contacts = new();
 
-        static bool userEscaped = false;
+        static bool UserEscaped = false;
 
         static public void AddContact(string contactName, string contactNumber)
         {
+            if (contactName.Length <= 3 || contactName.Length >= 20 || contactNumber.Length != 9)
+            {
+                Console.WriteLine("Name should be between 3 to 20 characters long and number exact 9 digits long");
+                return;
+            }
             if (!contacts.ContainsKey(contactName))
             {
                 contacts[contactName] = contactNumber;
@@ -19,9 +24,9 @@ namespace Phonebook
             }
         }
 
-        static public void showContactByNumber(string contactNumber)
+        static public void ShowContactByNumber(string contactNumber)
         {
-            string contactName = null;
+            string? contactName = null;
 
             foreach (var name in contacts.Keys)
             {
@@ -42,7 +47,7 @@ namespace Phonebook
             }
         }
 
-        static public void showContactByName(string contactName)
+        static public void ShowContactByName(string contactName)
         {
             if (contacts.ContainsKey(contactName))
             {
@@ -54,23 +59,29 @@ namespace Phonebook
             }
         }
 
-        static public void showAllContacts()
+        static public void ShowAllContacts()
         {
+            if (contacts.Count <= 0)
+            {
+                Console.WriteLine("There is no contacts in phonebook...");
+                return;
+            }
+
             foreach (var contactName in contacts.Keys)
             {
                 Console.WriteLine($"Name: {contactName}, Number: {contacts[contactName]}");
             }
         }
 
-        static public void phoneBookInterface()
+        static public void PhoneBookInterface()
         {
-            Console.WriteLine("*** Phonebook ***");
+            Console.WriteLine("\n*** Phonebook ***");
 
             Console.WriteLine("Type 'add-contact' to add contact to phonebook");
             Console.WriteLine("Type 'show-all-contacts' to show all contacts");
             Console.WriteLine("Type 'show-contact-by-name' to show contact by name");
             Console.WriteLine("Type 'show-contact-by-number' to show contact by number");
-            Console.WriteLine("Type 'x' to quit");
+            Console.WriteLine("Type 'x' to quit\n");
 
             var actionType = Console.ReadLine();
 
@@ -82,39 +93,29 @@ namespace Phonebook
                 var contactNumber = Console.ReadLine();
                 if (contactNumber != null && contactName != null) AddContact(contactName, contactNumber);
             }
-            else if (actionType == "show-all-contacts") showAllContacts();
+            else if (actionType == "show-all-contacts") ShowAllContacts();
             else if (actionType == "show-contact-by-name")
             {
                 Console.WriteLine("Name: ");
                 var contactName = Console.ReadLine();
-                if (contactName != null) showContactByName(contactName);
+                if (contactName != null) ShowContactByName(contactName);
             }
             else if (actionType == "show-contact-by-number")
             {
                 Console.WriteLine("Number: ");
                 var contactNumber = Console.ReadLine();
-                if (contactNumber != null) showContactByNumber(contactNumber);
+                if (contactNumber != null) ShowContactByNumber(contactNumber);
             }
-            else if (actionType == "x") userEscaped = true;
+            else if (actionType == "x") UserEscaped = true;
             else
             {
                 Console.WriteLine("Invalid action...");
             }
         }
 
-        static bool isNameValid(string name)
-        {
-            //TODO: Function to validate name
-        }
-
-        static bool isNumberValid(string name)
-        {
-            //TODO: Function to validate number
-        }
-
         static void Main()
         {
-            do { phoneBookInterface(); } while (!userEscaped);
+            do { PhoneBookInterface(); } while (!UserEscaped);
         }
     }
 }
