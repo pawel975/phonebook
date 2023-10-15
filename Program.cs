@@ -77,45 +77,50 @@ namespace Phonebook
         {
             Console.WriteLine("\n*** Phonebook ***");
 
-            Console.WriteLine("Type 'add-contact' to add contact to phonebook");
-            Console.WriteLine("Type 'show-all-contacts' to show all contacts");
-            Console.WriteLine("Type 'show-contact-by-name' to show contact by name");
-            Console.WriteLine("Type 'show-contact-by-number' to show contact by number");
+            Console.WriteLine("1 - to add contact to phonebook");
+            Console.WriteLine("2 - to show all contacts");
+            Console.WriteLine("3 - to show contact by name");
+            Console.WriteLine("4 - to show contact by number");
             Console.WriteLine("Type 'x' to quit\n");
 
             var actionType = Console.ReadLine();
 
-            if (actionType == "add-contact")
+            switch (actionType)
             {
-                Console.WriteLine("Name: ");
-                var contactName = Console.ReadLine();
-                Console.WriteLine("Number: ");
-                var contactNumber = Console.ReadLine();
-                if (contactNumber != null && contactName != null) AddContact(contactName, contactNumber);
-            }
-            else if (actionType == "show-all-contacts") ShowAllContacts();
-            else if (actionType == "show-contact-by-name")
-            {
-                Console.WriteLine("Name: ");
-                var contactName = Console.ReadLine();
-                if (contactName != null) ShowContactByName(contactName);
-            }
-            else if (actionType == "show-contact-by-number")
-            {
-                Console.WriteLine("Number: ");
-                var contactNumber = Console.ReadLine();
-                if (contactNumber != null) ShowContactByNumber(contactNumber);
-            }
-            else if (actionType == "x") UserEscaped = true;
-            else
-            {
-                Console.WriteLine("Invalid action...");
+                case "1":
+                    Console.WriteLine("Name: ");
+                    var contactName = Console.ReadLine();
+                    Console.WriteLine("Number: ");
+                    var contactNumber = Console.ReadLine();
+                    if (contactNumber != null && contactName != null) AddContact(contactName, contactNumber);
+                    break;
+                case "2":
+                    ShowAllContacts();
+                    break;
+                case "3":
+                    Console.WriteLine("Name: ");
+                    var contactNameToSearch = Console.ReadLine();
+                    if (contactNameToSearch != null) ShowContactByName(contactNameToSearch);
+                    break;
+                case "4":
+
+                    Console.WriteLine("Number: ");
+                    var contactNumberToSearch = Console.ReadLine();
+                    if (contactNumberToSearch != null) ShowContactByNumber(contactNumberToSearch);
+                    break;
+                case "x":
+                    UserEscaped = true;
+                    break;
+                default:
+                    Console.WriteLine("Invalid action...");
+                    break;
+
             }
         }
-
         static void Main()
         {
             do { PhoneBookInterface(); } while (!UserEscaped);
         }
     }
+
 }
